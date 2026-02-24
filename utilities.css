@@ -1,0 +1,233 @@
+/* Nexus-OS GitHub Ultimate - Utilities Styles */
+
+:root {
+  --nexus-primary: #00d9ff;
+  --nexus-primary-dark: #00a8cc;
+  --nexus-secondary: #1e2139;
+  --nexus-accent: #ff006e;
+  --nexus-bg-dark: #0a0e27;
+  --nexus-border: #1f2937;
+  --nexus-text: #e5e7eb;
+  --nexus-text-secondary: #9ca3af;
+}
+
+/* Download Button */
+.nexus-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  margin-left: 8px;
+  border: 1px solid var(--nexus-border);
+  border-radius: 4px;
+  background: rgba(0, 217, 255, 0.05);
+  color: var(--nexus-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.nexus-download-btn:hover {
+  background: rgba(0, 217, 255, 0.15);
+  border-color: var(--nexus-primary);
+  color: var(--nexus-primary);
+  box-shadow: 0 2px 8px rgba(0, 217, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.nexus-download-btn:active {
+  transform: translateY(0);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nexus-download-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* File Size Display */
+.nexus-file-size {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-left: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--nexus-text-secondary);
+  background: rgba(0, 217, 255, 0.08);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+  font-family: 'Fira Code', monospace;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+[data-testid="file-tree-item"]:hover .nexus-file-size {
+  background: rgba(0, 217, 255, 0.15);
+  border-color: rgba(0, 217, 255, 0.4);
+  color: var(--nexus-primary);
+}
+
+/* Code Copy Button */
+.nexus-copy-code {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  border: 1px solid var(--nexus-border);
+  border-radius: 6px;
+  background: rgba(0, 217, 255, 0.05);
+  color: var(--nexus-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0;
+  z-index: 10;
+  font-family: inherit;
+}
+
+pre,
+.blob-code-block,
+code[class*="language-"] {
+  position: relative;
+}
+
+pre:hover .nexus-copy-code,
+.blob-code-block:hover .nexus-copy-code,
+code[class*="language-"]:hover .nexus-copy-code {
+  opacity: 1;
+}
+
+.nexus-copy-code:hover {
+  background: rgba(0, 217, 255, 0.15);
+  border-color: var(--nexus-primary);
+  color: var(--nexus-primary);
+  box-shadow: 0 2px 8px rgba(0, 217, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.nexus-copy-code:active {
+  transform: translateY(0);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nexus-copy-code svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Copy Success State */
+.nexus-copy-code.nexus-copy-success {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+  color: #10b981;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+}
+
+.nexus-copy-code.nexus-copy-success::after {
+  content: '✓ Copied';
+  position: absolute;
+  bottom: -28px;
+  right: 0;
+  padding: 4px 8px;
+  background: rgba(16, 185, 129, 0.9);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+  white-space: nowrap;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+/* File Tree Integration */
+[data-testid="file-tree-item"],
+[role="row"][data-testid="file-tree-item"] {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+[data-testid="file-tree-item"]:hover,
+[role="row"][data-testid="file-tree-item"]:hover {
+  background: rgba(0, 217, 255, 0.05);
+}
+
+/* Repository Size Display */
+.nexus-repo-size {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-left: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--nexus-text-secondary);
+  background: rgba(0, 217, 255, 0.08);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+  font-family: 'Fira Code', monospace;
+  transition: all 0.2s ease;
+}
+
+.nexus-repo-size:hover {
+  background: rgba(0, 217, 255, 0.15);
+  border-color: rgba(0, 217, 255, 0.4);
+  color: var(--nexus-primary);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .nexus-download-btn {
+    width: 24px;
+    height: 24px;
+    padding: 3px;
+  }
+  
+  .nexus-download-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .nexus-file-size {
+    padding: 3px 6px;
+    font-size: 10px;
+    margin-left: 6px;
+  }
+  
+  .nexus-copy-code {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Dark mode enhancement */
+@media (prefers-color-scheme: dark) {
+  .nexus-download-btn,
+  .nexus-copy-code {
+    background: rgba(0, 217, 255, 0.08);
+  }
+}

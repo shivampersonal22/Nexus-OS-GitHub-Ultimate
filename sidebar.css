@@ -1,0 +1,234 @@
+/* Nexus-OS GitHub Ultimate - Sidebar Styles */
+
+:root {
+  --nexus-sidebar-width: 320px;
+  --nexus-primary: #00d9ff;
+  --nexus-primary-dark: #00a8cc;
+  --nexus-secondary: #1e2139;
+  --nexus-accent: #ff006e;
+  --nexus-bg-dark: #0a0e27;
+  --nexus-bg-secondary: #111827;
+  --nexus-border: #1f2937;
+  --nexus-text: #e5e7eb;
+  --nexus-text-secondary: #9ca3af;
+  --nexus-success: #10b981;
+}
+
+/* Sidebar Container */
+.nexus-sidebar-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: var(--nexus-sidebar-width);
+  height: 100vh;
+  background: linear-gradient(135deg, var(--nexus-bg-dark) 0%, var(--nexus-bg-secondary) 100%);
+  border-right: 1px solid var(--nexus-border);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.05);
+  animation: slideInLeft 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Sidebar Header */
+.nexus-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid var(--nexus-border);
+  background: rgba(10, 14, 39, 0.4);
+  backdrop-filter: blur(20px);
+  min-height: 56px;
+}
+
+.nexus-sidebar-header h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--nexus-text);
+  font-family: 'Fira Code', 'Monaco', monospace;
+}
+
+/* Sidebar Toggle Button */
+.nexus-sidebar-toggle {
+  background: transparent;
+  border: none;
+  color: var(--nexus-text-secondary);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nexus-sidebar-toggle:hover {
+  background: rgba(0, 217, 255, 0.1);
+  color: var(--nexus-primary);
+  transform: rotate(90deg);
+}
+
+/* Sidebar Content */
+.nexus-sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px;
+}
+
+.nexus-sidebar-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.nexus-sidebar-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.nexus-sidebar-content::-webkit-scrollbar-thumb {
+  background: var(--nexus-border);
+  border-radius: 3px;
+}
+
+.nexus-sidebar-content::-webkit-scrollbar-thumb:hover {
+  background: var(--nexus-text-secondary);
+}
+
+/* Tree Root */
+.nexus-tree-root {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Tree Items */
+.nexus-tree-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  margin: 2px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  color: var(--nexus-text);
+  font-size: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nexus-tree-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.nexus-tree-item:hover {
+  background: rgba(0, 217, 255, 0.1);
+  color: var(--nexus-primary);
+}
+
+.nexus-tree-item:hover::before {
+  background: var(--nexus-primary);
+}
+
+/* Tree File Icon */
+.nexus-tree-icon {
+  min-width: 16px;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.nexus-tree-item:hover .nexus-tree-icon {
+  opacity: 1;
+}
+
+/* Tree Label */
+.nexus-tree-label {
+  flex: 1;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Fira Code', 'Menlo', monospace;
+}
+
+.nexus-tree-file .nexus-tree-label {
+  font-weight: 400;
+  color: var(--nexus-text-secondary);
+}
+
+/* Tree Size Badge */
+.nexus-tree-size {
+  font-size: 10px;
+  color: var(--nexus-text-secondary);
+  margin-left: 8px;
+  padding: 2px 6px;
+  background: rgba(0, 217, 255, 0.1);
+  border-radius: 3px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.nexus-tree-item:hover .nexus-tree-size {
+  background: rgba(0, 217, 255, 0.2);
+  color: var(--nexus-primary);
+}
+
+/* Sidebar States */
+.nexus-sidebar-container.nexus-sidebar-closed {
+  transform: translateX(-100%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .nexus-sidebar-container {
+    --nexus-sidebar-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nexus-sidebar-container {
+    --nexus-sidebar-width: 240px;
+  }
+  
+  .nexus-sidebar-header h3 {
+    font-size: 12px;
+  }
+  
+  .nexus-tree-item {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}
+
+/* Dark mode indicator */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --nexus-bg-dark: #0a0e27;
+    --nexus-bg-secondary: #111827;
+  }
+}

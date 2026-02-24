@@ -1,0 +1,52 @@
+{
+  "manifest_version": 2,
+  "name": "Nexus-OS GitHub Ultimate",
+  "version": "1.0.0",
+  "description": "The ultimate GitHub enhancement suite: file tree navigation, code utilities, and powerful workflows.",
+  "author": "Nexus Development",
+  "icons": {
+    "128": "assets/icon-128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "*://github.com/*",
+    "*://api.github.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://github.com/*"],
+      "js": [
+        "content/tree.js",
+        "content/ui.js",
+        "content/utilities.js",
+        "content/main.js"
+      ],
+      "css": ["styles/sidebar.css", "styles/ui.css", "styles/utilities.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "scripts": ["background/background.js"],
+    "persistent": false
+  },
+  "web_accessible_resources": [
+    "assets/icon-128.png"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "nexus-github-ultimate@mozilla.org",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"],
+        "optional": []
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  }
+}
