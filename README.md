@@ -1,4 +1,5 @@
-Nexus-OS GitHub Ultimate is a comprehensive Firefox add-on that combines the best features of three popular GitHub enhancement tools into a single, lightweight package.
+Nexus-OS GitHub Ultimate is a comprehensive Firefox add-on that combines the best features of three popular GitHub enhancement tools into a single, lightweight package.<img width="1366" height="643" alt="image" src="https://github.com/user-attachments/assets/d4db8cbd-5e1c-4c62-8949-03c78fec8f36" />
+
 
 **Key Features:**
 
